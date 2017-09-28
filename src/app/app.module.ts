@@ -6,12 +6,16 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ContatosComponent } from './contatos/contatos.component';
+import { ContatoComponent } from './contatos/contato/contato.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    ContatosComponent,
+    ContatoComponent
   ],
   imports: [
     BrowserModule,
