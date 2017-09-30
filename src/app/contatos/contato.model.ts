@@ -1,14 +1,14 @@
 export class Contato {
   _id?:string;
-  nome:string;
-  telefone:string;
+  name:string;
+  phone:string;
 
   constructor(nome, telefone) {
-    console.log("Construtor da classe contato " + "Contato.nome = " + nome + "Contato.telefone - "
+    console.log("Construtor da classe contato " + "nome = " + nome + "telefone - "
       + telefone);
-    this.nome = nome;
-    this.telefone = telefone;
-    console.log("Contato ok no construtor");
-  }
-
+    this.name = nome;
+    this.phone = telefone;
+    console.log("Construtor da classe contato " + "nome = " + this.name + "telefone - "
+      + this.phone);
+    }
 }

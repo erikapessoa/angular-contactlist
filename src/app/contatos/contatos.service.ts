@@ -14,7 +14,7 @@ export class ContatosService {
 
   //GET
   getContatos() {
-console.log("Entrei em getContatos");
+          console.log("Entrei em getContatos");
     return this.http.get(this.url)
       .map(response => response.json());
   }
@@ -22,8 +22,8 @@ console.log("Entrei em getContatos");
   //POST
   saveContato(contato){
     console.log("Entrei em saveContato");
-    console.log(contato.nome);
-    console.log(contato.telefone);
+    console.log(contato.name);
+    console.log(contato.phone);
     //Set header to send content-type application/json
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });

@@ -11,15 +11,18 @@ export class ContatosComponent implements OnInit {
 
   constructor(private contatosService :ContatosService) { }
 
-  loading = false;
-
   ngOnInit() {
+    console.log("Entrei no init de componentes");
     this.loading = true;
-    this.contatosService.getContatos().subscribe(contatos => {
-      this.contatos = contatos;
+    this.contatosService.getContatos().subscribe(lista => {
+      this.contatos = lista;
       this.loading = false;
+      console.log("saindo do init");
+      console.log(this.contatos[0].name);
+      console.log(this.contatos[0].phone);
     });
   }
+
 
   contatos: Contato[];
 
@@ -30,10 +33,12 @@ export class ContatosComponent implements OnInit {
   showCreate = false;
   showEdit = false;
 
+  loading = false;
+
   createContato(nome, telefone) {
     console.log("Entrei em criar contato");
     console.log("Nome: " + nome);
-    console.log("Nome: " + telefone);
+    console.log("Telefone: " + telefone);
     let contatoX:Contato = new Contato(nome, telefone);
     this.showCreate = false;
 
