@@ -31,10 +31,13 @@ export class ContatosComponent implements OnInit {
   showEdit = false;
 
   createContato(nome, telefone) {
-    let c:Contato = new Contato(nome, telefone);
+    console.log("Entrei em criar contato");
+    console.log("Nome: " + nome);
+    console.log("Nome: " + telefone);
+    let contatoX:Contato = new Contato(nome, telefone);
     this.showCreate = false;
 
-    this.contatosService.saveContato(c).subscribe(contato => {
+    this.contatosService.saveContato(contatoX).subscribe(contato => {
       this.contatos.push(contato);
       this.showGreenNotification("Contato Criado");
     }, err => {

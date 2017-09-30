@@ -1,3 +1,34 @@
-<p>
-  contatos works!
-</p>
+<!-- NOTIFICAÇÕEs -->
+<div *ngIf="showGreenAlert" class="alert alert-success floating-alert" role="alert">
+  {{alertText}}
+</div>
+<div *ngIf="showRedAlert" class="alert alert-error floating-alert" role="alert">
+  {{alertText}}
+</div>
+
+<!-- LISTAGEM DE CONTATOS -->
+<div *ngFor="let c of contatos">
+  <!-- COMPONENT CONTATOS -->
+  <app-contato
+    [contato]="c"
+    (onRemoveContato)="removeContato(c)">
+  </app-contato>
+</div>
+
+<!-- ENQUANTO 'loading' FOR TRUE, A MENSAGEM É MOSTRADA -->
+<div *ngIf="loading">
+  Carregando...
+</div>
+
+<br /><br />
+
+<!--  FORMULÁRIO PARA INSERÇÃO DE CONTATOS -->
+Nome:
+<input
+  type="text"
+  [(ngModel)]="inputNome" /> <br />
+Telefone:
+<input
+  type="text"
+  [(ngModel)]="inputTelefone" /> <br />
+<button (click)="createContato(inputNome, inputTelefone)">Adicionar Contato</button>

@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -15,12 +14,16 @@ export class ContatosService {
 
   //GET
   getContatos() {
+console.log("Entrei em getContatos");
     return this.http.get(this.url)
       .map(response => response.json());
   }
 
   //POST
   saveContato(contato){
+    console.log("Entrei em saveContato");
+    console.log(contato.nome);
+    console.log(contato.telefone);
     //Set header to send content-type application/json
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });

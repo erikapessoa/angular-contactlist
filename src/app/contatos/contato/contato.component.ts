@@ -16,14 +16,19 @@ export class ContatoComponent implements OnInit {
   ngOnInit() {
   }
 
+  //Com o annotation @Input(), estamos informando que a propriedade
+  //contato será recebida por quem fizer a criação do componente
   @Input() contato : Contato;
+  //Com @Output(), criamos um evento que será disparado pelo nosso
+  //componente, e poderá ser tratado do lado de fora, pelo componente
+  //mais externo
   @Output() onRemoveContato = new EventEmitter();
 
-  removeContato() {
+  remove() {
     this.onRemoveContato.emit();
   }
 
-  updateContato() {
+  update() {
     this.contatosService.updateContato(this.contato).subscribe();
   }
 
