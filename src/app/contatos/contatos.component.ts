@@ -26,13 +26,9 @@ export class ContatosComponent implements OnInit {
 
   contatos: Contato[];
 
-  showGreenAlert = false;
+  showBlueAlert = false;
   showRedAlert = false;
   alertText = "";
-
-  showCreate = false;
-  showEdit = false;
-
   loading = false;
 
   createContato(nome, telefone) {
@@ -40,11 +36,9 @@ export class ContatosComponent implements OnInit {
     console.log("Nome: " + nome);
     console.log("Telefone: " + telefone);
     let contatoX:Contato = new Contato(nome, telefone);
-    this.showCreate = false;
-
     this.contatosService.saveContato(contatoX).subscribe(contato => {
       this.contatos.push(contato);
-      this.showGreenNotification("Contato Criado");
+      this.showBlueNotification("Contato Criado");
     }, err => {
       this.showRedNotification("Erro ao criar o contato");
     });
@@ -60,7 +54,7 @@ export class ContatosComponent implements OnInit {
       //Remove o contato do servidor
       this.contatosService.deleteContato(contato)
         .subscribe(success => {
-            this.showGreenNotification("Contato deletado!");
+            this.showBlueNotification("Contato deletado!");
           }, err => {
             this.showRedNotification("Erro ao deletar o contato");
             // Revert the view back to its original state
@@ -69,16 +63,11 @@ export class ContatosComponent implements OnInit {
     }
   }
 
-  showNewContatoForm() {
-    this.showEdit = false;
-    this.showCreate = !this.showCreate;
-  }
-
-  showGreenNotification(text) {
+  showBlueNotification(text) {
     this.alertText = text;
-    this.showGreenAlert = true;
+    this.showBlueAlert = true;
     setTimeout(()=>{
-      this.showGreenAlert = false;
+      this.showBlueAlert = false;
     }, 1000);
   }
 

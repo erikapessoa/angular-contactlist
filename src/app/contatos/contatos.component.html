@@ -1,34 +1,36 @@
 <!-- NOTIFICAÇÕEs -->
-<div *ngIf="showGreenAlert" class="alert alert-success floating-alert" role="alert">
+<div *ngIf="showBlueAlert" class="alert alert-primary floating-alert" role="alert">
   {{alertText}}
 </div>
 <div *ngIf="showRedAlert" class="alert alert-error floating-alert" role="alert">
   {{alertText}}
 </div>
+<div class="container">
 
+<!--  FORMULÁRIO PARA INSERÇÃO DE CONTATOS -->
+<div class="col-lg-8">
+  <div class="input-group">
+    <span class="input-group-addon" id="sizing-addon2">Nome</span>
+    <input type="text" [(ngModel)]="inputNome" class="form-control" placeholder="" aria-label="" aria-describedby="sizing-addon2">
+    <span class="input-group-addon" id="sizing-addon2">Telefone</span>
+    <input type="text" [(ngModel)]="inputTelefone" class="form-control" placeholder="" aria-label="" aria-describedby="sizing-addon2">
+    <button class="btn btn-secondary" (click)="createContato(inputNome, inputTelefone)" type="button">Adicionar</button>
+  </div>
+</div>
+<br><br>
 <!-- LISTAGEM DE CONTATOS -->
-<div *ngFor="let c of contatos">
-  <!-- COMPONENT CONTATOS -->
-  <app-contato
-    [contato]="c"
-    (onRemoveContato)="removeContato(c)">
-  </app-contato>
+<div class="container" *ngFor="let c of contatos">
+  <!-- CONTATOS -->
+    <div class="col">
+      <app-contato
+        [contato]="c"
+        (onRemoveContato)="removeContato(c)">
+      </app-contato>
+    </div>
 </div>
 
+<br><br>
 <!-- ENQUANTO 'loading' FOR TRUE, A MENSAGEM É MOSTRADA -->
 <div *ngIf="loading">
   Carregando...
 </div>
-
-<br /><br />
-
-<!--  FORMULÁRIO PARA INSERÇÃO DE CONTATOS -->
-Nome:
-<input
-  type="text"
-  [(ngModel)]="inputNome" /> <br />
-Telefone:
-<input
-  type="text"
-  [(ngModel)]="inputTelefone" /> <br />
-<button (click)="createContato(inputNome, inputTelefone)">Adicionar Contato</button>

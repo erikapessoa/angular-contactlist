@@ -28,8 +28,10 @@ export class ContatoComponent implements OnInit {
     this.onRemoveContato.emit();
   }
 
+/*
   update() {
     this.contatosService.updateContato(this.contato).subscribe();
   }
+  */
 
 }

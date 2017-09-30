@@ -31,14 +31,6 @@ export class ContatosService {
       .map(res => res.json());
   }
 
-  //PUT
-  updateContato(contato){
-    //Set header to send content-type application/json
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
-    return this.http.put(this.getContato(contato._id), JSON.stringify(contato), options)
-      .map(res => res.json());
-  }
 
   //DELETE
   deleteContato(contato){
@@ -49,5 +41,19 @@ export class ContatosService {
   getContato(id) {
     return `${this.url}/${id}`;
   }
+
+  /*
+  //PUT
+  updateContato(contato){
+    //Set header to send content-type application/json
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.put(this.getContato(contato._id), JSON.stringify(contato), options)
+      .map(res => res.json());
+  }
+  */
+
+
+
 
 }
